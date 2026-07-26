@@ -1,0 +1,20 @@
+/*
+Theme Name: Meybell WP Theme
+Theme URI: https://meybell.com/
+Author: Meybell & Co.
+Author URI: https://meybell.com/
+Description: A clear, flexible WordPress foundation built by Meybell & Co.
+Version: 0.1.0
+Requires at least: 6.5
+Requires PHP: 8.1
+Text Domain: meybell
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*
+ * WordPress reads the information above to identify the theme.
+ *
+ * Front-end styles and design tokens live in:
+ * assets/css/main.css
+ */
