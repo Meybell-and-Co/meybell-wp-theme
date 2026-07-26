@@ -16,6 +16,8 @@
  * assets, register navigation locations, configure the editor,
  * render templates, or contain business logic.
  *
+ * This file serves as the theme's introduction to WordPress, declaring the core capabilities the framework supports so WordPress can enable the appropriate features and interfaces.
+ *
  * Related Files:
  * - enqueue.php
  * - navigation.php

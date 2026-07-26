@@ -1,0 +1,202 @@
+[1mdiff --git a/architecture.md b/architecture.md[m
+[1mindex 846924a..f5db0a5 100644[m
+[1m--- a/architecture.md[m
+[1m+++ b/architecture.md[m
+[36m@@ -559,3 +559,84 @@[m [mCons[m
+ - Requires additional planning before building pages[m
+ - Some unique layouts may require creating new components[m
+ - Designers must think in systems rather than individual pages[m
+[32m+[m[32m# ADR-008 — Editor Experience is Part of the Product[m
+[32m+[m
+[32m+[m[32m## Status[m
+[32m+[m
+[32m+[m[32mAccepted[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Decision[m
+[32m+[m
+[32m+[m[32mThe Block Editor is considered a first-class user interface of the Meybell Framework.[m
+[32m+[m
+[32m+[m[32mThe editing experience shall receive the same level of intentional design, usability, accessibility, and documentation as the public-facing website.[m
+[32m+[m
+[32m+[m[32mFeatures, design tokens, and reusable components should be implemented in ways that create consistency between content creation and content presentation.[m
+[32m+[m
+[32m+[m[32mWhen a choice exists between making development easier and making content management clearer, the framework should favor the long-term experience of the content editor whenever reasonably practical.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Why[m
+[32m+[m
+[32m+[m[32mA website is not finished when it is launched.[m
+[32m+[m
+[32m+[m[32mIt becomes a tool that another person must use, often for years.[m
+[32m+[m
+[32m+[m[32mMany organizations spend dozens or hundreds of hours maintaining their websites after launch. Editors should not need to mentally translate between "what I see while editing" and "what visitors actually see."[m
+[32m+[m
+[32m+[m[32mA confusing editing experience leads to:[m
+[32m+[m
+[32m+[m[32m- inconsistent branding[m
+[32m+[m[32m- accidental design drift[m
+[32m+[m[32m- unnecessary training[m
+[32m+[m[32m- slower content updates[m
+[32m+[m[32m- reduced confidence[m
+[32m+[m[32m- abandoned CMS features[m
+[32m+[m
+[32m+[m[32mConversely, an editor that mirrors the published experience allows content creators to work with confidence and consistency.[m
+[32m+[m
+[32m+[m[32mThe framework therefore considers editor experience to be part of the product—not merely a development convenience.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Documentation Philosophy[m
+[32m+[m
+[32m+[m[32mDocumentation should describe editor-facing decisions alongside developer-facing decisions.[m
+[32m+[m
+[32m+[m[32mWhen introducing a new feature or component, documentation should answer two questions:[m
+[32m+[m
+[32m+[m[32m> **How does this improve the experience for the visitor?**[m
+[32m+[m
+[32m+[m[32mand[m
+[32m+[m
+[32m+[m[32m> **How does this improve the experience for the person maintaining the website?**[m
+[32m+[m
+[32m+[m[32mIf documentation only addresses developers, it is incomplete.[m
+[32m+[m
+[32m+[m[32mIf a design decision intentionally changes the editor experience, that rationale should be documented.[m
+[32m+[m
+[32m+[m[32mThe goal is not simply to make websites easier to build.[m
+[32m+[m
+[32m+[m[32mThe goal is to make websites easier to own.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Examples[m
+[32m+[m
+[32m+[m[32m### Good[m
+[32m+[m
+[32m+[m[32m- Custom color palettes appear identically within the editor and on the live website.[m
+[32m+[m[32m- Typography shown while editing closely resembles the published page.[m
+[32m+[m[32m- Buttons inserted through Gutenberg automatically inherit framework spacing, border radius, and typography.[m
+[32m+[m[32m- Reusable blocks provide meaningful names and descriptions rather than technical jargon.[m
+[32m+[m
+[32m+[m[32mExample:[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32m❌ CTA_Component_01[m
+[32m+[m
+[32m+[m[32m✅ Call to Action[m
+[32m+[m[32mEncourage visitors to take the next step.[m
+[1mdiff --git a/inc/editor.php b/inc/editor.php[m
+[1mindex e147540..aa7b8b0 100644[m
+[1m--- a/inc/editor.php[m
+[1m+++ b/inc/editor.php[m
+[36m@@ -6,13 +6,14 @@[m
+  * File: editor.php[m
+  *[m
+  * Responsibility:[m
+[31m- * Integrates the WordPress block editor with the framework.[m
+[32m+[m[32m * Provides Block Editor integration and editor-specific behavior.[m
+  *[m
+  * Guiding Principle:[m
+  * The editor should resemble the front end whenever practical.[m
+  *[m
+[31m- * This file configures the editor experience so it closely[m
+[31m- * reflects the front-end design system and editing workflow.[m
+[32m+[m[32m * This file enables editor features and styles so that content[m
+[32m+[m[32m * creators experience a workspace that closely reflects the[m
+[32m+[m[32m * published website.[m
+  *[m
+  * Related Files:[m
+  * - setup.php[m
+[36m@@ -22,3 +23,28 @@[m
+  * @package Meybell[m
+  * ================================================================[m
+  */[m
+[32m+[m
+[32m+[m[32mif ( ! defined( 'ABSPATH' ) ) {[m
+[32m+[m	[32mexit;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * Configures the WordPress Block Editor.[m
+[32m+[m[32m *[m
+[32m+[m[32m * @return void[m
+[32m+[m[32m */[m
+[32m+[m[32mfunction mnco_configure_editor() {[m
+[32m+[m
+[32m+[m	[32m/**[m
+[32m+[m[32m * Editor Styles[m
+[32m+[m[32m *[m
+[32m+[m[32m * Load the primary framework stylesheet inside[m
+[32m+[m[32m * the Block Editor so content more closely reflects[m
+[32m+[m[32m * the published experience.[m
+[32m+[m[32m */[m
+[32m+[m	[32madd_theme_support( 'editor-styles' );[m
+[32m+[m
+[32m+[m	[32madd_editor_style( 'assets/css/main.css' );[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32madd_action( 'after_setup_theme', 'mnco_configure_editor' );[m
+[1mdiff --git a/inc/navigation.php b/inc/navigation.php[m
+[1mindex 7c371ba..c9af7eb 100644[m
+[1m--- a/inc/navigation.php[m
+[1m+++ b/inc/navigation.php[m
+[36m@@ -7,18 +7,40 @@[m
+  *[m
+  * Responsibility:[m
+  * Provides navigation-related functionality.[m
+[31m-[m
+[32m+[m[32m *[m
+  * Guiding Principle:[m
+  * Navigation should be accessible before it is clever.[m
+  *[m
+[31m- * This file contains menu helpers, navigation behavior,[m
+[31m- * accessibility improvements, and other navigation-specific[m
+[31m- * utilities.[m
+[32m+[m[32m * This file registers menu locations and contains navigation-[m
+[32m+[m[32m * specific helpers. It does not render the site header, control[m
+[32m+[m[32m * general asset loading, or store site content.[m
+  *[m
+  * Related Files:[m
+  * - setup.php[m
+  * - template-functions.php[m
+[32m+[m[32m * - header.php[m
+[32m+[m[32m * - footer.php[m
+  *[m
+  * @package Meybell[m
+  * ================================================================[m
+  */[m
+[32m+[m
+[32m+[m[32mif ( ! defined( 'ABSPATH' ) ) {[m
+[32m+[m	[32mexit;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * Registers the navigation menu locations provided by the theme.[m
+[32m+[m[32m *[m
+[32m+[m[32m * @return void[m
+[32m+[m[32m */[m
+[32m+[m[32mfunction mnco_register_navigation_menus() {[m
+[32m+[m	[32mregister_nav_menus([m
+[32m+[m		[32marray([m
+[32m+[m			[32m'primary' => __( 'Primary Navigation', 'meybell' ),[m
+[32m+[m			[32m'footer'  => __( 'Footer Navigation', 'meybell' ),[m
+[32m+[m		[32m)[m
+[32m+[m	[32m);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32madd_action( 'after_setup_theme', 'mnco_register_navigation_menus' );[m
+[1mdiff --git a/inc/setup.php b/inc/setup.php[m
+[1mindex 3b42113..e7b8f86 100644[m
+[1m--- a/inc/setup.php[m
+[1m+++ b/inc/setup.php[m
+[36m@@ -16,6 +16,8 @@[m
+  * assets, register navigation locations, configure the editor,[m
+  * render templates, or contain business logic.[m
+  *[m
+[32m+[m[32m * This file serves as the theme's introduction to WordPress, declaring the core capabilities the framework supports so WordPress can enable the appropriate features and interfaces.[m
+[32m+[m[32m *[m
+  * Related Files:[m
+  * - enqueue.php[m
+  * - navigation.php[m
