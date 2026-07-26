@@ -1,0 +1,133 @@
+/**
+ * Meybell theme front-end styles.
+ */
+
+/* =========================================================
+   Design tokens
+   ========================================================= */
+
+:root {
+	/* Brand colors — gold */
+	--color-gold-700: #cba135;
+	--color-gold-500: #d2ae51;
+	--color-gold-300: #dabb6e;
+	--color-gold-100: #e1c98b;
+
+	/* Brand colors — charcoal */
+	--color-charcoal-900: #2e2e2e;
+	--color-charcoal-700: #3d3d3d;
+	--color-charcoal-500: #5b5b5b;
+	--color-charcoal-300: #797979;
+
+	/* Brand colors — cream */
+	--color-cream-100: #f8f1e6;
+	--color-cream-300: #f2e9dc;
+
+	/* Neutral colors */
+	--color-white: #ffffff;
+	--color-black: #000000;
+
+	/* Semantic color aliases */
+	--color-background: var(--color-cream-100);
+	--color-surface: var(--color-white);
+	--color-text: var(--color-charcoal-900);
+	--color-text-muted: var(--color-charcoal-500);
+	--color-border: var(--color-charcoal-300);
+	--color-accent: var(--color-gold-700);
+	--color-accent-soft: var(--color-gold-100);
+
+	/* Typography */
+	--font-serif:
+		"EB Garamond",
+		Georgia,
+		"Times New Roman",
+		serif;
+
+	--font-sans:
+		"Montserrat",
+		Arial,
+		Helvetica,
+		sans-serif;
+
+	--font-body: var(--font-sans);
+	--font-heading: var(--font-serif);
+
+	/* Type sizes */
+	--font-size-xs: 0.75rem;
+	--font-size-sm: 0.875rem;
+	--font-size-base: 1rem;
+	--font-size-md: 1.25rem;
+	--font-size-lg: 1.5rem;
+	--font-size-xl: 2rem;
+	--font-size-2xl: 3rem;
+	--font-size-3xl: 4rem;
+
+	/* Type properties */
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+
+	--line-height-tight: 1.1;
+	--line-height-heading: 1.2;
+	--line-height-body: 1.6;
+
+	/* Layout widths */
+	--content-width: 48rem;
+	--wide-width: 80rem;
+
+	/* Spacing */
+	--space-2xs: 0.25rem;
+	--space-xs: 0.5rem;
+	--space-sm: 1rem;
+	--space-md: 1.5rem;
+	--space-lg: 2.5rem;
+	--space-xl: 4rem;
+	--space-2xl: 6rem;
+
+	/* Borders */
+	--border-width: 1px;
+	--border-radius-sm: 0.25rem;
+	--border-radius-md: 0.5rem;
+	--border-radius-pill: 999px;
+
+	/* Motion */
+	--transition-fast: 150ms ease;
+	--transition-standard: 250ms ease;
+}
+
+body {
+	margin: 0;
+	background: var(--color-background);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
+	font-weight: var(--font-weight-regular);
+	line-height: var(--line-height-heading);
+}
+
+a {
+	color: var(--color-text);
+	text-decoration-color: var(--color-accent);
+	text-decoration-thickness: 0.1em;
+	text-underline-offset: 0.2em;
+	transition:
+		color var(--transition-fast),
+		text-decoration-color var(--transition-fast);
+}
+
+a:hover,
+a:focus-visible {
+	color: var(--color-charcoal-500);
+	text-decoration-color: var(--color-gold-500);
+}

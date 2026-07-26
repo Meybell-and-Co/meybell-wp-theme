@@ -137,6 +137,9 @@ ARCHITECTURE.md
 Why the framework is built this way.
 # Architecture Decision Records (ADRs)
 
+These ADRs are intentionally philosophical.
+They describe enduring principles rather than implementation details. When implementation changes but the principle remains sound, update the code—not the ADR. When the principle itself evolves, create a new ADR that supersedes the previous one while preserving the historical record.
+
 Architecture Decision Records document significant technical decisions made during the development of the Meybell Framework.
 
 They serve two purposes:
@@ -479,3 +482,80 @@ Cons
 
 - Requires discipline to keep current
 - Slight upfront time investment
+
+---
+
+# ADR-007 — Design Systems Before Pages
+
+**Status:** Accepted
+
+## Decision
+
+The Meybell Framework will prioritize building reusable design components before assembling complete pages.
+
+Pages should be composed from a shared library of components rather than built as unique, one-off layouts whenever practical.
+
+## Why
+
+Pages are temporary.
+
+Components become the visual vocabulary of the framework.
+
+By investing in a reusable component library first, every new page benefits from improvements made to those components. This approach encourages consistency, reduces duplicated effort, and allows the design system to evolve organically over time.
+
+The goal is not to make every page identical, but to ensure they are assembled from familiar, well-understood building blocks.
+
+## Documentation Philosophy
+
+When creating a new page or feature, ask these questions in order:
+
+1. Can an existing component communicate this idea?
+2. If not, is this a variation of an existing component?
+3. Only if neither is true should a new component be created.
+
+New components should solve recurring problems rather than one-time design requests.
+
+## Examples
+
+Components
+
+- Buttons
+- Cards
+- Heroes
+- Callouts
+- Timelines
+- Statistics
+- Quotes
+- Field Notes
+- Continuous Thread
+- Spotlight
+- Bridge
+- Window
+- Shelf
+
+Pages
+
+- Home
+- About
+- Services
+- Contact
+- Case Study
+- Blog Post
+
+Pages should be assembled from components whenever practical.
+
+## Tradeoffs
+
+Pros
+
+- Consistent visual language
+- Faster page construction
+- Reduced duplicated code
+- Easier long-term maintenance
+- Stronger design system
+
+Cons
+
+- Requires additional planning before building pages
+- Some unique layouts may require creating new components
+- Designers must think in systems rather than individual pages
