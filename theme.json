@@ -1,0 +1,178 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "palette": [
+        {
+          "slug": "gold",
+          "name": "Gold",
+          "color": "#CBA135"
+        },
+        {
+          "slug": "gold-light",
+          "name": "Gold — Light",
+          "color": "#D2AE51"
+        },
+        {
+          "slug": "gold-lighter",
+          "name": "Gold — Lighter",
+          "color": "#DABB6E"
+        },
+        {
+          "slug": "gold-pale",
+          "name": "Gold — Pale",
+          "color": "#E1C98B"
+        },
+        {
+          "slug": "charcoal",
+          "name": "Charcoal",
+          "color": "#2E2E2E"
+        },
+        {
+          "slug": "charcoal-light",
+          "name": "Charcoal — Light",
+          "color": "#3D3D3D"
+        },
+        {
+          "slug": "gray",
+          "name": "Gray",
+          "color": "#5B5B5B"
+        },
+        {
+          "slug": "gray-light",
+          "name": "Gray — Light",
+          "color": "#797979"
+        },
+        {
+          "slug": "cream",
+          "name": "Cream",
+          "color": "#F8F1E6"
+        },
+        {
+          "slug": "cream-dark",
+          "name": "Cream — Dark",
+          "color": "#F2E9DC"
+        },
+        {
+          "slug": "white",
+          "name": "White",
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "720px",
+      "wideSize": "1200px"
+    },
+    "spacing": {
+      "blockGap": true,
+      "margin": true,
+      "padding": true,
+      "units": [
+        "px",
+        "rem",
+        "%",
+        "vw",
+        "vh"
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "slug": "display",
+          "name": "EB Garamond",
+          "fontFamily": "\"EB Garamond\", Georgia, \"Times New Roman\", serif"
+        },
+        {
+          "slug": "body",
+          "name": "Montserrat",
+          "fontFamily": "Montserrat, Arial, Helvetica, sans-serif"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "name": "Small",
+          "size": "0.875rem"
+        },
+        {
+          "slug": "medium",
+          "name": "Medium",
+          "size": "1rem"
+        },
+        {
+          "slug": "large",
+          "name": "Large",
+          "size": "1.5rem"
+        },
+        {
+          "slug": "x-large",
+          "name": "Extra Large",
+          "size": "2.25rem"
+        },
+        {
+          "slug": "display",
+          "name": "Display",
+          "size": "clamp(3rem, 7vw, 6rem)"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|cream",
+      "text": "var:preset|color|charcoal"
+    },
+    "spacing": {
+      "blockGap": "1.5rem"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|body",
+      "fontSize": "var:preset|font-size|medium",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "heading": {
+        "color": {
+          "text": "var:preset|color|charcoal"
+        },
+        "typography": {
+          "fontFamily": "var:preset|font-family|display",
+          "fontWeight": "400",
+          "lineHeight": "1.1"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var:preset|color|charcoal"
+        },
+        "typography": {
+          "textDecoration": "underline"
+        }
+      },
+      "button": {
+        "border": {
+          "radius": "0"
+        },
+        "color": {
+          "background": "var:preset|color|gold",
+          "text": "var:preset|color|charcoal"
+        },
+        "typography": {
+          "fontFamily": "var:preset|font-family|body",
+          "fontWeight": "600"
+        }
+      }
+    }
+  }
+}
