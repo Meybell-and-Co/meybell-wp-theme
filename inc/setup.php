@@ -6,13 +6,15 @@
  * File: setup.php
  *
  * Responsibility:
- * Registers the WordPress capabilities supported by the theme.
+ * Registers the fundamental WordPress capabilities supported by
+ * the theme.
  *
  * Guiding Principle:
- * Declare capabilities, don't implement behavior.
+ * Declare capabilities; do not implement behavior.
  *
  * This file declares what the theme can do. It does not load
- * assets, render templates, or contain business logic.
+ * assets, register navigation locations, configure the editor,
+ * render templates, or contain business logic.
  *
  * Related Files:
  * - enqueue.php
@@ -22,40 +24,29 @@
  * @package Meybell
  * ================================================================
  */
-<?php
-/**
- * Theme setup and capability registration.
- *
- * This file declares the WordPress features supported by the
- * Meybell Framework theme. It does not enqueue assets, render
- * templates, or implement business logic.
- *
- * @package Meybell
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Registers theme support and core WordPress capabilities.
+ * Registers the theme's fundamental WordPress capabilities.
  *
  * @return void
  */
 function mnco_theme_setup() {
-
-	/**
-	 * Let WordPress manage the document <title>.
+	/*
+	 * Allow WordPress to manage the document title.
 	 */
 	add_theme_support( 'title-tag' );
 
-	/**
-	 * Enable Featured Images.
+	/*
+	 * Enable featured images for posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	/**
-	 * Enable support for HTML5 markup.
+	/*
+	 * Use modern HTML5 markup for WordPress-generated elements.
 	 */
 	add_theme_support(
 		'html5',
@@ -70,48 +61,39 @@ function mnco_theme_setup() {
 		)
 	);
 
-	/**
-	 * Enable support for custom logos.
+	/*
+	 * Allow site owners to upload a flexible custom logo.
+	 *
+	 * These dimensions provide a suggested starting size rather
+	 * than forcing the uploaded image into a fixed shape.
 	 */
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 200,
-			'width'       => 200,
+			'height'      => 120,
+			'width'       => 320,
 			'flex-height' => true,
 			'flex-width'  => true,
 		)
 	);
 
-	/**
-	 * Enable responsive embedded content.
+	/*
+	 * Make embedded media responsive to its container.
 	 */
 	add_theme_support( 'responsive-embeds' );
 
-	/**
-	 * Enable wide and full-width block alignment.
+	/*
+	 * Allow blocks to use wide and full-width alignment.
 	 */
 	add_theme_support( 'align-wide' );
 
-	/**
-	 * Load editor styles so the block editor
-	 * more closely reflects the front-end.
+	/*
+	 * Add RSS feed links to the document head where appropriate.
 	 */
-	add_theme_support( 'editor-styles' );
-	add_editor_style( 'assets/css/main.css' );
+	add_theme_support( 'automatic-feed-links' );
 
-	/**
-	 * Register navigation menu locations.
-	 */
-	register_nav_menus(
-		array(
-			'primary' => __( 'Primary Navigation', 'meybell' ),
-			'footer'  => __( 'Footer Navigation', 'meybell' ),
-		)
-	);
-
-	/**
-	 * Load the theme text domain for translations.
+	/*
+	 * Load translations from the theme's languages directory.
 	 */
 	load_theme_textdomain(
 		'meybell',
