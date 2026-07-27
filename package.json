@@ -1,0 +1,12 @@
+{
+  "name": "meybell-wp-theme",
+  "version": "1.1.0",
+  "private": true,
+  "description": "The reusable WordPress theme framework for Meybell & Co.",
+  "type": "module",
+  "scripts": {
+    "build:theme": "node scripts/build-theme-json.js",
+    "check:theme": "node scripts/check-theme-json.js",
+    "validate": "npm run check:theme"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "name": "Meybell Design Tokens",
+    "version": "1.0.0",
+    "description": "Platform-independent design values for Meybell & Co."
+  },
+  "color": {
+    "palette": [
+      {
+        "slug": "gold",
+        "name": "Gold",
+        "value": "#CBA135"
+      },
+      {
+        "slug": "gold-light",
+        "name": "Gold — Light",
+        "value": "#D2AE51"
+      },
+      {
+        "slug": "gold-lighter",
+        "name": "Gold — Lighter",
+        "value": "#DABB6E"
+      },
+      {
+        "slug": "gold-pale",
+        "name": "Gold — Pale",
+        "value": "#E1C98B"
+      },
+      {
+        "slug": "charcoal",
+        "name": "Charcoal",
+        "value": "#2E2E2E"
+      },
+      {
+        "slug": "charcoal-light",
+        "name": "Charcoal — Light",
+        "value": "#3D3D3D"
+      },
+      {
+        "slug": "gray",
+        "name": "Gray",
+        "value": "#5B5B5B"
+      },
+      {
+        "slug": "gray-light",
+        "name": "Gray — Light",
+        "value": "#797979"
+      },
+      {
+        "slug": "cream",
+        "name": "Cream",
+        "value": "#F8F1E6"
+      },
+      {
+        "slug": "cream-dark",
+        "name": "Cream — Dark",
+        "value": "#F2E9DC"
+      },
+      {
+        "slug": "white",
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "roles": {
+      "canvas": "cream",
+      "canvasAlternate": "cream-dark",
+      "text": "charcoal",
+      "textMuted": "gray",
+      "accent": "gold",
+      "accentSoft": "gold-pale",
+      "surface": "white"
+    }
+  },
+  "typography": {
+    "fontFamilies": [
+      {
+        "slug": "display",
+        "name": "EB Garamond",
+        "fontFamily": "\"EB Garamond\", Georgia, \"Times New Roman\", serif"
+      },
+      {
+        "slug": "body",
+        "name": "Montserrat",
+        "fontFamily": "Montserrat, Arial, Helvetica, sans-serif"
+      }
+    ],
+    "roles": {
+      "heading": "display",
+      "body": "body",
+      "interface": "body"
+    },
+    "fontSizes": [
+      {
+        "slug": "small",
+        "name": "Small",
+        "size": "0.875rem"
+      },
+      {
+        "slug": "medium",
+        "name": "Medium",
+        "size": "1rem"
+      },
+      {
+        "slug": "large",
+        "name": "Large",
+        "size": "1.5rem"
+      },
+      {
+        "slug": "x-large",
+        "name": "Extra Large",
+        "size": "2.25rem"
+      },
+      {
+        "slug": "display",
+        "name": "Display",
+        "size": "clamp(3rem, 7vw, 6rem)"
+      }
+    ],
+    "lineHeight": {
+      "tight": "1.1",
+      "body": "1.6"
+    },
+    "fontWeight": {
+      "regular": "400",
+      "semibold": "600",
+      "bold": "700"
+    }
+  },
+  "spacing": {
+    "blockGap": "1.5rem",
+    "scale": [
+      {
+        "slug": "2-xs",
+        "name": "2X Small",
+        "size": "0.25rem"
+      },
+      {
+        "slug": "xs",
+        "name": "Extra Small",
+        "size": "0.5rem"
+      },
+      {
+        "slug": "sm",
+        "name": "Small",
+        "size": "0.75rem"
+      },
+      {
+        "slug": "md",
+        "name": "Medium",
+        "size": "1rem"
+      },
+      {
+        "slug": "lg",
+        "name": "Large",
+        "size": "1.5rem"
+      },
+      {
+        "slug": "xl",
+        "name": "Extra Large",
+        "size": "2rem"
+      },
+      {
+        "slug": "2-xl",
+        "name": "2X Large",
+        "size": "3rem"
+      },
+      {
+        "slug": "3-xl",
+        "name": "3X Large",
+        "size": "4rem"
+      }
+    ]
+  },
+  "layout": {
+    "contentSize": "720px",
+    "wideSize": "1200px"
+  },
+  "shape": {
+    "radius": {
+      "none": "0",
+      "small": "0.25rem",
+      "round": "999px"
+    }
+  }
+}

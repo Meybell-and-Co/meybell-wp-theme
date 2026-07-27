@@ -67,9 +67,11 @@
         }
       ]
     },
-    "layout": {
-      "contentSize": "720px",
-      "wideSize": "1200px"
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
     },
     "spacing": {
       "blockGap": true,
@@ -81,6 +83,48 @@
         "%",
         "vw",
         "vh"
+      ],
+      "spacingSizes": [
+        {
+          "slug": "2-xs",
+          "name": "2X Small",
+          "size": "0.25rem"
+        },
+        {
+          "slug": "xs",
+          "name": "Extra Small",
+          "size": "0.5rem"
+        },
+        {
+          "slug": "sm",
+          "name": "Small",
+          "size": "0.75rem"
+        },
+        {
+          "slug": "md",
+          "name": "Medium",
+          "size": "1rem"
+        },
+        {
+          "slug": "lg",
+          "name": "Large",
+          "size": "1.5rem"
+        },
+        {
+          "slug": "xl",
+          "name": "Extra Large",
+          "size": "2rem"
+        },
+        {
+          "slug": "2-xl",
+          "name": "2X Large",
+          "size": "3rem"
+        },
+        {
+          "slug": "3-xl",
+          "name": "3X Large",
+          "size": "4rem"
+        }
       ]
     },
     "typography": {
@@ -126,22 +170,22 @@
           "size": "clamp(3rem, 7vw, 6rem)"
         }
       ]
+    },
+    "layout": {
+      "contentSize": "720px",
+      "wideSize": "1200px"
     }
   },
   "styles": {
-    "color": {
-      "background": "var:preset|color|cream",
-      "text": "var:preset|color|charcoal"
-    },
-    "spacing": {
-      "blockGap": "1.5rem"
-    },
-    "typography": {
-      "fontFamily": "var:preset|font-family|body",
-      "fontSize": "var:preset|font-size|medium",
-      "lineHeight": "1.6"
-    },
     "elements": {
+      "link": {
+        "typography": {
+          "textDecoration": "underline"
+        },
+        "color": {
+          "text": "var:preset|color|charcoal"
+        }
+      },
       "heading": {
         "color": {
           "text": "var:preset|color|charcoal"
@@ -150,14 +194,6 @@
           "fontFamily": "var:preset|font-family|display",
           "fontWeight": "400",
           "lineHeight": "1.1"
-        }
-      },
-      "link": {
-        "color": {
-          "text": "var:preset|color|charcoal"
-        },
-        "typography": {
-          "textDecoration": "underline"
         }
       },
       "button": {
@@ -173,6 +209,18 @@
           "fontWeight": "600"
         }
       }
+    },
+    "color": {
+      "background": "var:preset|color|cream",
+      "text": "var:preset|color|charcoal"
+    },
+    "spacing": {
+      "blockGap": "1.5rem"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|body",
+      "fontSize": "var:preset|font-size|medium",
+      "lineHeight": "1.6"
     }
   }
 }
