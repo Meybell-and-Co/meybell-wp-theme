@@ -1,0 +1,139 @@
+
+# ADR-003 --- Design Token Pipeline
+
+## Status
+
+Accepted
+
+------------------------------------------------------------------------
+
+## Decision
+
+design-tokens.json is the canonical source of Meybell's
+platform-independent design language.
+
+Platform-specific artifacts (such as WordPress's theme.json) are
+generated from these tokens through build scripts rather than maintained
+manually.
+
+Each platform is responsible for implementing the design language---not
+defining it.
+
+------------------------------------------------------------------------
+
+## Why
+
+The Meybell Framework is intended to outlive any single platform.
+
+Today it targets WordPress.
+
+Tomorrow it may target:
+
+-   Statamic
+-   Astro
+-   Tailwind
+-   CSS Variables
+-   Figma
+-   Native applications
+-   Design documentation
+
+If every platform maintains its own copy of colors, typography, spacing,
+or layout values, they will inevitably drift over time.
+
+By establishing one canonical vocabulary, every downstream
+implementation remains synchronized.
+
+------------------------------------------------------------------------
+
+## Architecture
+
+                    DESIGN LANGUAGE
+                  design-tokens.json
+                           │
+                           ▼
+                 Build / Translation Layer
+                           │
+          ┌────────────────┼────────────────┐
+          ▼                ▼                ▼
+      theme.json      CSS Variables     Figma Tokens
+          ▼
+      WordPress
+
+------------------------------------------------------------------------
+
+## Responsibilities
+
+### design-tokens.json
+
+Owns:
+
+-   Colors
+-   Typography
+-   Spacing
+-   Layout widths
+-   Shape
+-   Motion
+-   Shadow values
+-   Semantic roles
+
+------------------------------------------------------------------------
+
+### config/theme.base.json
+
+Owns:
+
+-   WordPress behavior
+-   Editor policy
+-   Feature flags
+-   Native settings
+-   Platform conventions
+
+------------------------------------------------------------------------
+
+### theme.json
+
+Generated artifact.
+
+Never edited manually.
+
+------------------------------------------------------------------------
+
+### Build Scripts
+
+Responsible for translating platform-independent tokens into
+platform-specific formats.
+
+------------------------------------------------------------------------
+
+## Tradeoffs
+
+### Pros
+
+-   True single source of truth
+-   Platform independence
+-   No duplicated design values
+-   Easier framework expansion
+-   Automatic synchronization
+
+### Cons
+
+-   Requires a build step
+-   Slightly more initial architecture
+-   Contributors must understand generated files
+
+------------------------------------------------------------------------
+
+## Future Direction
+
+Additional platform adapters may eventually generate:
+
+-   CSS Custom Properties
+-   Tailwind configuration
+-   Figma Design Tokens
+-   Design documentation
+-   Other framework-specific assets
+
+The design language should remain stable even as implementation targets
+evolve.
+
+------------------------------------------------------------------------

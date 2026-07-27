@@ -1,0 +1,121 @@
+# ADR-008 — Editor Experience is Also Part of the Product
+
+## Status
+
+Accepted
+
+---
+
+## Decision
+
+Content editing interfaces are considered first-class user experiences within the Meybell Framework.
+
+The experience of creating and maintaining content should receive the same level of intentional design, usability, accessibility, and documentation as the public-facing website.
+
+Features, design systems, reusable components, and platform integrations should strive to create consistency between content creation and content presentation.
+
+When a choice exists between making development easier and making content management clearer, the framework should favor the long-term experience of the content editor whenever reasonably practical.
+
+---
+
+## Why
+
+A website is not finished when it is launched.
+
+It becomes a tool that another person must use—often for years.
+
+Many organizations spend significantly more time maintaining their websites than building them.
+
+Editors should not need to mentally translate between what they see while creating content and what visitors ultimately experience.
+
+A confusing editing experience leads to:
+
+- Inconsistent branding
+- Accidental design drift
+- Unnecessary training
+- Slower content updates
+- Reduced confidence
+- Abandoned CMS features
+
+Conversely, an editing experience that closely reflects the published experience enables content creators to work with confidence, consistency, and independence.
+
+The framework therefore considers editor experience part of the product—not merely a development convenience.
+
+---
+
+## Documentation Responsibilities
+
+Documentation should describe editor-facing decisions alongside developer-facing decisions.
+
+When introducing a new feature or component, documentation should answer two questions:
+
+> **How does this improve the visitor's experience?**
+
+> **How does this improve the editor's experience?**
+
+If documentation only addresses developers, it is incomplete.
+
+If a design decision intentionally changes the editing experience, that rationale should also be documented.
+
+The goal is not simply to make websites easier to build.
+
+The goal is to make them easier to own.
+
+---
+
+## Examples
+
+### Good
+
+- Platform editing interfaces closely resemble the published experience.
+- Design tokens are shared between editing and presentation whenever possible.
+- Components inherit framework spacing, typography, and color automatically.
+- Content blocks use clear, human-readable names and descriptions.
+- Editors receive meaningful previews rather than placeholder representations.
+
+Example:
+
+```text
+❌ CTA_Component_01
+
+✅ Call to Action
+
+Encourage visitors to take the next step.
+```
+
+### Avoid
+
+- Technical jargon exposed to content editors.
+- Components that behave differently in the editor than they do when published.
+- Hidden styling that only appears after publishing.
+- Workflows that require editors to understand implementation details.
+
+---
+
+## Tradeoffs
+
+### Pros
+
+- Greater confidence for content editors
+- Reduced design drift
+- Less onboarding and training
+- More consistent publishing experience
+- Stronger separation between content and implementation
+
+### Cons
+
+- Requires additional development effort
+- Platform limitations may constrain editor parity
+- Editor interfaces sometimes require platform-specific customization
+
+---
+
+## Future Direction
+
+As the Meybell Framework expands beyond WordPress, this principle should remain unchanged.
+
+The editing experience should feel intentional regardless of the underlying platform.
+
+Whether content is managed through Gutenberg, Statamic, Astro Studio, or another editor, the goal remains the same:
+
+Editors should feel empowered to create content—not burdened by the technology behind it.

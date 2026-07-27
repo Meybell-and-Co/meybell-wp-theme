@@ -1,153 +1,190 @@
-# Meybell Framework
+# The Meybell Framework
 
-"Good architecture should make the right thing easier than the wrong thing."
+## First Edition
+
+------------------------------------------------------------------------
+
+*Practical guidance for building durable digital systems.*
+
+> "Good architecture should make the right thing easier than the wrong
+> thing."
+
+The purpose of this document is not to prescribe every implementation
+detail.
+
+It exists to preserve the reasoning behind the Meybell Framework so
+future decisions remain consistent even as technologies change.
+
+When implementation and philosophy disagree, revisit the implementation
+first. Revise the philosophy only when a better principle has emerged.
+
+------------------------------------------------------------------------
 
 ## Purpose
 
-The Meybell Framework is a WordPress-first starter framework for rapidly building client websites that are maintainable, accessible, secure, and pleasant to work on.
+The Meybell Framework is a WordPress-first, design-system-driven starter
+framework for building maintainable, accessible, secure, and
+understandable digital experiences.
 
 It is not intended to replace WordPress.
 
-It exists to organize and extend WordPress using its documented APIs and conventions.
+It exists to organize and extend platforms using documented APIs,
+conventions, and a platform-independent design language.
 
----
+------------------------------------------------------------------------
 
-# Philosophy
+## Contents
 
-## Prefer Native
+-   Guiding Principles
+-   Repository Structure
+-   Generated Artifacts
+-   Architecture Decision Records
 
-Whenever WordPress provides a stable, documented solution, prefer it over custom code.
+------------------------------------------------------------------------
 
-Extend the platform.
+# Guiding Principles
 
-Do not compete with it.
+## Respect the Platform
 
----
+Build with the platform before building around it.
 
 ## Presentation and Functionality are Separate
 
-Themes control presentation.
+Themes present.
 
-Plugins control functionality.
-
-Anything that should survive a theme change belongs in a plugin.
-
----
+Plugins provide functionality.
 
 ## One Source of Truth
 
-Every piece of information should have one authoritative owner.
+Every piece of information has one authoritative owner.
 
-Examples:
-
-- Colors → theme.json
-- Typography → theme.json
-- Theme setup → setup.php
-- Asset loading → enqueue.php
-- Navigation → navigation.php
-
-Avoid duplicating configuration.
-
----
+Generated artifacts never become authoritative sources.
 
 ## Clear Before Clever
 
-Code should be obvious before it is impressive.
-
-Future readability is more valuable than present cleverness.
-
----
+Optimize for comprehension before optimization.
 
 ## Build Small Pieces
 
-Large systems should emerge from small, understandable modules.
-
-Small files.
-
-Small functions.
-
-Small commits.
-
----
+Small files. Small functions. Small commits.
 
 ## Progressive Enhancement
 
-Content should remain useful even when JavaScript is unavailable.
-
-Animation should enhance understanding, not create it.
-
----
+Content should remain useful without JavaScript.
 
 ## Accessibility is a Feature
 
-Accessibility is considered part of the design process, not an afterthought.
-
-Keyboard users are first-class users.
-
-Reduced-motion preferences are respected.
-
-Semantic HTML is preferred over custom widgets.
-
----
+Accessibility is part of design---not an afterthought.
 
 ## Security by Default
 
-Validate.
-
-Sanitize.
-
-Authorize.
-
-Escape.
-
-These are not optional.
-
----
+Validate. Sanitize. Authorize. Escape.
 
 ## Documentation Matters
 
-The repository should explain both:
+Every significant decision deserves an explanation.
 
-How it works.
+## Systems Before Solutions
 
-Why it works.
+Build the smallest system that makes tomorrow's work easier.
 
-Future maintainers should not need archaeology.
+## Intentional Complexity
 
----
+Complexity is acceptable only when it creates lasting value.
+
+## Optimize for Ownership
+
+Build systems organizations can confidently own for years.
+
+## Human-Centered Engineering
+
+Optimize for human understanding before machine cleverness whenever
+practical.
+
+------------------------------------------------------------------------
 
 # Repository Structure
 
-assets/
-Visual assets.
+`assets/`
+:   Visual assets.
 
-inc/
-Theme implementation.
+`config/`
+:   Platform-specific configuration.
 
-parts/
-Reusable template pieces.
+`docs/`
+:   Framework documentation.
 
-templates/
-Page templates.
+`inc/`
+:   Theme implementation.
 
-README.md
-How to install and use.
+`scripts/`
+:   Build and verification tooling.
 
-ARCHITECTURE.md
-Why the framework is built this way.
-# Architecture Decision Records (ADRs)
+`template-parts/`
+:   Reusable templates.
 
-These ADRs are intentionally philosophical.
-They describe enduring principles rather than implementation details. When implementation changes but the principle remains sound, update the code—not the ADR. When the principle itself evolves, create a new ADR that supersedes the previous one while preserving the historical record.
+`templates/`
+:   Page templates.
 
-Architecture Decision Records document significant technical decisions made during the development of the Meybell Framework.
+`design-tokens.json`
+:   Canonical design language.
 
-They serve two purposes:
+`theme.json`
+:   Generated WordPress implementation.
 
-1. Preserve the reasoning behind important decisions.
-2. Prevent future developers (including Future Mark) from solving problems that have already been thoughtfully considered.
+------------------------------------------------------------------------
 
-An ADR is not permanent doctrine. If a better solution emerges, a new ADR should supersede the old one while preserving the historical context.
+# Generated Artifacts
+
+## Source Files
+
+-   design-tokens.json
+-   config/theme.base.json
+
+## Generated Files
+
+-   theme.json
+
+Generated files are products of the build process and should be
+regenerated rather than edited manually.
+
+------------------------------------------------------------------------
+
+# Architecture Decision Records
+
+Architecture Decision Records (ADRs) capture significant technical
+decisions and, more importantly, the reasoning behind them.
+
+Guiding Principles explain **how we think**.
+
+ADRs explain **why we made a particular decision**.
+
+Each ADR should generally follow this structure:
+
+-   Status
+-   Decision
+-   Why
+-   Alternatives Considered (optional)
+-   Responsibilities (optional)
+-   Examples (optional)
+-   Tradeoffs
+-   Future Direction (optional)
+
+------------------------------------------------------------------------
+
+## ADR Index
+
+-   ADR-001 --- WordPress-First Development
+-   ADR-002 --- Separation of Presentation and Functionality
+-   ADR-003 --- Design Token Pipeline
+-   ADR-004 --- Naming Standards
+-   ADR-005 --- Coding Standards
+-   ADR-006 --- Documentation as a Product
+-   ADR-007 --- Design Systems Before Pages
+-   ADR-008 --- Editor Experience is Part of the Product
+-   ADR-009 --- Generated Artifacts are Disposable
+
+------------------------------------------------------------------------
 
 ---
 
@@ -260,55 +297,132 @@ Cons
 
 ---
 
-# ADR-003 — Design Token Strategy
+# ADR-003 — Design Token Pipeline
 
 **Status:** Accepted
 
+---
+
 ## Decision
 
-theme.json is the authoritative source for shared design tokens.
+design-tokens.json is the canonical source of Meybell's platform-independent design language.
 
-CSS creates semantic aliases and implements component styling.
+Platform-specific artifacts (such as WordPress's theme.json) are generated from these tokens through build scripts rather than maintained manually.
+
+Each platform is responsible for implementing the design language—not defining it.
+
+---
 
 ## Why
 
-WordPress already exposes design tokens to both the editor and the front-end.
+The Meybell Framework is intended to outlive any single platform.
 
-Using the native system keeps the editor synchronized with the website while allowing components to use meaningful semantic variables.
+Today it targets WordPress.
 
-Example
+Tomorrow it may target:
 
-WordPress owns:
+- Statamic
+- Astro
+- Tailwind
+- CSS Variables
+- Figma
+- Native applications
+- Design documentation
 
-Gold
+If every platform maintains its own copy of colors, typography, spacing, or layout values, they will inevitably drift over time.
 
-Charcoal
+By establishing one canonical vocabulary, every downstream implementation remains synchronized.
 
-Cream
+---
 
-CSS owns:
+## Architecture
 
-Accent
+                    DESIGN LANGUAGE
+                  design-tokens.json
+                           │
+                           ▼
+                 Build / Translation Layer
+                           │
+          ┌────────────────┼────────────────┐
+          ▼                ▼                ▼
+      theme.json      CSS Variables     Figma Tokens
+          ▼
+      WordPress
 
-Surface
+---
 
-Text
+## Responsibilities
 
-Border
+### design-tokens.json
+
+Owns:
+
+- Colors
+- Typography
+- Spacing
+- Layout widths
+- Shape
+- Motion
+- Shadow values
+- Semantic roles
+
+---
+
+### config/theme.base.json
+
+Owns:
+
+- WordPress behavior
+- Editor policy
+- Feature flags
+- Native settings
+- Platform conventions
+
+---
+
+### theme.json
+
+Generated artifact.
+
+Never edited manually.
+
+---
+
+### Build Scripts
+
+Responsible for translating platform-independent tokens into platform-specific formats.
+
+---
 
 ## Tradeoffs
 
-Pros
+### Pros
 
-- Single source of truth
-- Better editor integration
-- Easier theming
-- Cleaner components
+- True single source of truth
+- Platform independence
+- No duplicated design values
+- Easier framework expansion
+- Automatic synchronization
 
-Cons
+### Cons
 
-- Requires learning WordPress token conventions
-- Variable names are longer than custom CSS variables
+- Requires a build step
+- Slightly more initial architecture
+- Contributors must understand generated files
+
+---
+
+## Future Direction
+
+Additional platform adapters may eventually generate:
+
+- CSS Custom Properties
+- Tailwind configuration
+- Figma Design Tokens
+- Design documentation
+- Other framework-specific assets
+
+The design language should remain stable even as implementation targets evolve.
 
 ---
 
@@ -640,3 +754,65 @@ Example:
 
 ✅ Call to Action
 Encourage visitors to take the next step.
+
+---
+
+# ADR-009 — Generated Artifacts are Disposable
+
+**Status:** Accepted
+
+---
+
+## Decision
+
+Generated files are considered build artifacts.
+
+They may be regenerated at any time from their canonical source files.
+
+The framework should never require developers to manually edit generated output.
+
+---
+
+## Why
+
+Generated artifacts exist to satisfy the requirements of downstream platforms.
+
+They are products of the build process—not sources of architectural truth.
+
+Treating generated files as disposable prevents configuration drift and reinforces the framework's single-source-of-truth philosophy.
+
+---
+
+## Examples
+
+Source Files
+
+- design-tokens.json
+- config/theme.base.json
+
+Generated Files
+
+- theme.json
+
+Future generated artifacts may include:
+
+- CSS variables
+- Tailwind configuration
+- Figma tokens
+- Style Dictionary output
+
+---
+
+## Tradeoffs
+
+### Pros
+
+- Eliminates duplicated maintenance
+- Consistent platform output
+- Easier automation
+- Predictable builds
+
+### Cons
+
+- Requires developers to learn the build process
+- Generated files may appear unfamiliar to new contributors
