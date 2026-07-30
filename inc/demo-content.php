@@ -1,20 +1,21 @@
 <?php
+
 /**
  * ================================================================
  * Meybell Framework
  * ----------------------------------------------------------------
- * File: demo-mode.php
+ * File: demo-content.php
  *
  * Responsibility:
  * Supports presentation-only demo experiences.
 
-* Guiding Principle:
+ * Guiding Principle:
  * Demonstrate honestly; simulate only presentation.
-* Demo mode should enable presentation-only experiences without
+ * Demo mode should enable presentation-only experiences without
  * affecting persistent data or business logic.
 
 
-* This file provides helper functions and presentation logic
+ * This file provides helper functions and presentation logic
  * used when displaying demonstrations of framework features.
  *
  * Persistent demo data, permissions, and business logic belong
@@ -24,6 +25,6 @@
  * - template-functions.php
  * - mnco-toybox (future plugin)
  *
- * @package Meybell
+ * @package meybell-framework
  * ================================================================
  */
