@@ -18,10 +18,13 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "intelephense.environment.includePaths": [],
   "intelephense.files.exclude": [
     "**/.git/**",
     "**/node_modules/**",
     "**/vendor/**"
+  ],
+  "intelephense.environment.includePaths": [
+    "C:/Users/Meybells/Local Sites/meybell-framework/app/public/wp-admin",
+    "C:/Users/Meybells/Local Sites/meybell-framework/app/public/wp-includes"
   ]
 }
