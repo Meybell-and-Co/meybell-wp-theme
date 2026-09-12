@@ -22,7 +22,7 @@ get_header();
 			<h1>We turn complicated work into smart, useful, gorgeous systems.</h1>
 
 			<p class="mnco-holding-page__intro">
-				Our new home is taking shape, but we're still here for you.
+				Our new home is taking shape, but we're still hard at work for you.
 			</p>
 
 			<a class="mnco-holding-page__contact" href="mailto:ideas@meybell.com">
