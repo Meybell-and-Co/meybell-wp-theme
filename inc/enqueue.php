@@ -9,7 +9,6 @@
  * Responsibility:
  * Registers and enqueues the theme's front-end assets.
  *
- *
  * Guiding Principle:
  * Load only the assets required for the current request.
  *
@@ -25,7 +24,7 @@
  * ================================================================
  */
 
-if (! defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -34,16 +33,22 @@ if (! defined('ABSPATH')) {
  *
  * @return void
  */
-
-function mnco_enqueue_assets()
-{
+function mnco_enqueue_assets() {
+	$theme_version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_style(
 		'mnco-style',
 		get_stylesheet_uri(),
 		array(),
-		wp_get_theme()->get('Version')
+		$theme_version
+	);
+
+	wp_enqueue_style(
+		'mnco-main',
+		get_template_directory_uri() . '/assets/css/main.css',
+		array( 'mnco-style' ),
+		$theme_version
 	);
 }
 
-add_action('wp_enqueue_scripts', 'mnco_enqueue_assets');
+add_action( 'wp_enqueue_scripts', 'mnco_enqueue_assets' );
