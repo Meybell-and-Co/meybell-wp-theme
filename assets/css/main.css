@@ -159,33 +159,35 @@ a:focus-visible {
 }
 
 .mnco-holding-page__content {
-	max-width: 48rem;
-}
-
-.mnco-holding-page h1 {
-	margin: 0 0 var(--space-md);
-	font-size: clamp(2.75rem, 7vw, 5.75rem);
-	line-height: 0.98;
-	color: var(--color-cream-100);
+	max-width: 52rem;
 }
 
 .mnco-holding-page p {
 	margin: 0;
 }
 
+.mnco-holding-page__eyebrow {
+	margin-bottom: var(--space-sm) !important;
+	color: var(--color-gold-300);
+	font-size: var(--font-size-xs);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.18em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.mnco-holding-page h1 {
+	max-width: 52rem;
+	margin: 0 0 var(--space-md);
+	font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+	line-height: 1;
+	color: var(--color-cream-100);
+}
+
 .mnco-holding-page__intro {
 	max-width: 42rem;
 	font-size: clamp(1.05rem, 2vw, 1.35rem);
 	color: var(--color-cream-300);
-}
-
-.mnco-holding-page__positioning {
-	max-width: 44rem;
-	margin-top: var(--space-lg) !important;
-	font-family: var(--font-heading);
-	font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-	line-height: 1.2;
-	color: var(--color-gold-100);
 }
 
 .mnco-holding-page__contact {
