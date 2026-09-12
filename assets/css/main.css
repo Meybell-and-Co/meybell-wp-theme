@@ -136,6 +136,12 @@ a:focus-visible {
    Meybell holding page
    ========================================================= */
 
+/* WordPress.com supplies the classic-theme shell around this page. */
+.home .site-header,
+.home header#masthead {
+	display: none;
+}
+
 .mnco-holding-page {
 	min-height: 100vh;
 	box-sizing: border-box;
@@ -147,7 +153,7 @@ a:focus-visible {
 }
 
 .mnco-holding-page__inner {
-	width: min(100%, 72rem);
+	width: min(100%, 80rem);
 	margin-inline: auto;
 }
 
@@ -159,7 +165,7 @@ a:focus-visible {
 }
 
 .mnco-holding-page__content {
-	max-width: 52rem;
+	max-width: 72rem;
 }
 
 .mnco-holding-page p {
@@ -168,6 +174,7 @@ a:focus-visible {
 
 .mnco-holding-page__eyebrow {
 	margin-bottom: var(--space-sm) !important;
+	font-family: var(--font-sans);
 	color: var(--color-gold-300);
 	font-size: var(--font-size-xs);
 	font-weight: var(--font-weight-semibold);
@@ -177,15 +184,21 @@ a:focus-visible {
 }
 
 .mnco-holding-page h1 {
-	max-width: 52rem;
+	max-width: 70rem;
 	margin: 0 0 var(--space-md);
-	font-size: clamp(2.75rem, 6.5vw, 5.5rem);
-	line-height: 1;
+	font-family: var(--font-heading);
+	font-size: clamp(2.75rem, 5vw, 4.75rem);
+	font-weight: var(--font-weight-regular);
+	font-kerning: normal;
+	font-optical-sizing: auto;
+	letter-spacing: -0.015em;
+	line-height: 1.02;
 	color: var(--color-cream-100);
+	text-wrap: balance;
 }
 
 .mnco-holding-page__intro {
-	max-width: 42rem;
+	max-width: 48rem;
 	font-size: clamp(1.05rem, 2vw, 1.35rem);
 	color: var(--color-cream-300);
 }
@@ -205,4 +218,10 @@ a:focus-visible {
 .mnco-holding-page__contact:focus-visible {
 	color: var(--color-gold-100);
 	text-decoration-color: var(--color-gold-300);
+}
+
+@media (max-width: 48rem) {
+	.mnco-holding-page h1 {
+		text-wrap: wrap;
+	}
 }
