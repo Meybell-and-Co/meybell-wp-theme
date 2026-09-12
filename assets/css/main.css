@@ -131,3 +131,76 @@ a:focus-visible {
 	color: var(--color-charcoal-500);
 	text-decoration-color: var(--color-gold-500);
 }
+
+/* =========================================================
+   Meybell holding page
+   ========================================================= */
+
+.mnco-holding-page {
+	min-height: 100vh;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	background: var(--color-charcoal-900);
+	color: var(--color-cream-100);
+	padding: clamp(var(--space-lg), 7vw, var(--space-2xl));
+}
+
+.mnco-holding-page__inner {
+	width: min(100%, 72rem);
+	margin-inline: auto;
+}
+
+.mnco-holding-page__logo {
+	display: block;
+	width: min(18rem, 70vw);
+	height: auto;
+	margin-bottom: clamp(var(--space-xl), 9vh, var(--space-2xl));
+}
+
+.mnco-holding-page__content {
+	max-width: 48rem;
+}
+
+.mnco-holding-page h1 {
+	margin: 0 0 var(--space-md);
+	font-size: clamp(2.75rem, 7vw, 5.75rem);
+	line-height: 0.98;
+	color: var(--color-cream-100);
+}
+
+.mnco-holding-page p {
+	margin: 0;
+}
+
+.mnco-holding-page__intro {
+	max-width: 42rem;
+	font-size: clamp(1.05rem, 2vw, 1.35rem);
+	color: var(--color-cream-300);
+}
+
+.mnco-holding-page__positioning {
+	max-width: 44rem;
+	margin-top: var(--space-lg) !important;
+	font-family: var(--font-heading);
+	font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+	line-height: 1.2;
+	color: var(--color-gold-100);
+}
+
+.mnco-holding-page__contact {
+	display: inline-block;
+	margin-top: var(--space-lg);
+	color: var(--color-cream-100);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-decoration-color: var(--color-gold-500);
+}
+
+.mnco-holding-page__contact:hover,
+.mnco-holding-page__contact:focus-visible {
+	color: var(--color-gold-100);
+	text-decoration-color: var(--color-gold-300);
+}
