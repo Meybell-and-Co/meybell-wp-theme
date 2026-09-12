@@ -204,9 +204,9 @@ a:focus-visible {
 	margin-bottom: var(--space-sm) !important;
 	font-family: var(--font-sans);
 	color: var(--color-gold-300);
-	font-size: var(--font-size-xs);
+	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-semibold);
-	letter-spacing: 0.18em;
+	letter-spacing: 0.14em;
 	line-height: 1.4;
 	text-transform: uppercase;
 }
@@ -233,7 +233,7 @@ a:focus-visible {
 
 .mnco-holding-page__contact {
 	display: inline-block;
-	margin-top: var(--space-lg);
+	margin-top: var(--space-xl);
 	color: var(--color-cream-100);
 	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-semibold);
