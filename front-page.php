@@ -12,7 +12,7 @@ get_header();
 	<div class="mnco-holding-page__inner">
 		<img
 			class="mnco-holding-page__logo"
-			src="https://assets.meybell.com/brand/logos/mnco-logo-full-color-cream.svg"
+			src="https://assets.meybell.com/brand/logos/mnco-logo-cream.png"
 			alt="Meybell & Co."
 		>
 
