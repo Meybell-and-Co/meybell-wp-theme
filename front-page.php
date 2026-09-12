@@ -2,11 +2,22 @@
 /**
  * Temporary Meybell & Co. front page.
  *
+ * The holding page intentionally uses a minimal document shell rather
+ * than the framework's standard header and footer templates.
+ *
  * @package Meybell_Framework
  */
-
-get_header();
 ?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
 <main class="mnco-holding-page">
 	<div class="mnco-holding-page__inner">
@@ -32,5 +43,6 @@ get_header();
 	</div>
 </main>
 
-<?php
-get_footer();
+<?php wp_footer(); ?>
+</body>
+</html>
