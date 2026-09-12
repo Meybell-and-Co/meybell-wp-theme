@@ -27,7 +27,7 @@ get_header();
 				We turn complicated work into smart, useful, gorgeous systems.
 			</p>
 
-			<a class="mnco-holding-page__contact" href="mailto:hello@meybell.com">
+			<a class="mnco-holding-page__contact" href="mailto:ideas@meybell.com">
 				Start a conversation
 			</a>
 		</div>
