@@ -3,6 +3,34 @@
  */
 
 /* =========================================================
+   Webfonts
+   ========================================================= */
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/montserrat-400-regular.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/montserrat-500-medium.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/montserrat-600-semi-bold.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+}
+
+/* =========================================================
    Design tokens
    ========================================================= */
 
