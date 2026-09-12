@@ -17,14 +17,12 @@ get_header();
 		>
 
 		<div class="mnco-holding-page__content">
-			<h1>We're making some changes.</h1>
+			<p class="mnco-holding-page__eyebrow">We're making some changes</p>
+
+			<h1>We turn complicated work into smart, useful, gorgeous systems.</h1>
 
 			<p class="mnco-holding-page__intro">
 				Our new home is taking shape, but we're still here for you.
-			</p>
-
-			<p class="mnco-holding-page__positioning">
-				We turn complicated work into smart, useful, gorgeous systems.
 			</p>
 
 			<a class="mnco-holding-page__contact" href="mailto:ideas@meybell.com">
